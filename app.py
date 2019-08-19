@@ -14,7 +14,7 @@ def index():
             Trains.append(train)
 
     return render_template('home.html', Trains=Trains)
-    time.sleep(10)
+    time.sleep(30)
 
     
     if __name__ == '__main__':
