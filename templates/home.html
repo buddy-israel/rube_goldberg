@@ -1,12 +1,9 @@
 <html>
+  <head>
+      <link rel="stylesheet" href='/static/style.css' />
+        <meta http-equiv="refresh" content="30" >
+          <script>
 
-
-
-<head>
-<link rel="stylesheet" href='/static/style.css' />
-<meta http-equiv="refresh" content="10" >
-
-<script>
 function startTime() {
   var today = new Date();
   var h = today.getHours();
@@ -22,20 +19,20 @@ function checkTime(i) {
   if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
   return i;
 }
-</script>
-</head>
 
+    </script>
+  </head>
 <body onload="startTime()">
 
-
 <div id="contimain">
-<div id="box1">
+  <div id="box1">
 
-</div>
-<div id="box2">
+    <marquee behavior="scroll" direction="left">HTML scrolling text... </marquee>
+
+  </div>
+    <div id="box2">
 <p id="txt"></p>
-
-</div>
+  </div>
 <table id="customers">
   <tr>
     <th>Linie</th>
@@ -49,9 +46,6 @@ function checkTime(i) {
     <td>{{ (bahn.remaining / 60)|int }} min</td>
   </tr>
 {% endfor %}
-
-
-
 
 </div>
 </body>
