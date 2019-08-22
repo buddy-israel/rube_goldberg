@@ -1,53 +1,43 @@
 <html>
+
 <head>
-<link rel="stylesheet" href='/static/style.css' />
-<meta http-equiv="refresh" content="30" >
-<script>
-
-function startTime() {
-  var today = new Date();
-  var h = today.getHours();
-  var m = today.getMinutes();
-  var s = today.getSeconds();
-  m = checkTime(m);
-  s = checkTime(s);
-  document.getElementById('txt').innerHTML =
-  h + ":" + m + ":" + s;
-  var t = setTimeout(startTime, 500);
-}
-function checkTime(i) {
-  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-  return i;
-}
-
-</script>
+  <link rel="stylesheet" href='/static/style.css' />
+  <script src="/static/script.js"></script>
+  <meta http-equiv="refresh" content="30" >
 </head>
-<body onload="startTime()">
 
-<div id="contimain">
-  <div id="box1">
+<body onload="startTime(), move()">
 
-    <marquee behavior="scroll" direction="left">HTML scrolling text... </marquee>
-
-  </div>
-  
-<div id="box2">
-<p id="txt"></p>
-  </div>
-<table id="customers">
-  <tr>
-    <th>Linie</th>
-    <th>Nach</th>
-    <th>Status</th>
-  </tr>
-{% for bahn in Trains %}
-  <tr>
-    <td>{{ bahn.line }}</td>
-    <td>{{ bahn.end }}</td>
-    <td>{{ (bahn.remaining / 60)|int }} min</td>
-  </tr>
-{% endfor %}
+<div class="container">
+    <div id="box1">
+    <marquee behavior="scroll" direction="left">hier kommt noch ein toller scrolling text... </marquee>
+    </div>
+    <div id="box2">
+    </div>
+    <div id="box3">
+    <div class="progress">
+    <div id="myProgress">
+    <div id="myBar"></div>
+    </div>
+    </div>
+    </div>
+      <table id="table">
+      <tr>
+      <th>Linie</th>
+      <th>Nach</th>
+      <th>Status</th>
+      </tr>
+      {% for bahn in Trains %}
+      <tr>
+      <td>{{ bahn.line }}</td>
+      <td>{{ bahn.end }}</td>
+      <td>{{ (bahn.remaining / 60)|int }} min</td>
+      </tr>
+      {% endfor %}
+      </table>
 
 </div>
+
 </body>
+
 </html>
